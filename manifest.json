@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Google + YouTube 첫 추천 영상",
+  "version": "2.0.0",
+  "description": "google.com 첫 화면의 검색창 아래에서 YouTube 홈의 첫 번째 추천 영상을 재생합니다.",
+  "host_permissions": ["https://www.youtube.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.google.com/*",
+        "https://google.com/*",
+        "https://www.google.co.kr/*",
+        "https://google.co.kr/*"
+      ],
+      "js": ["google.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
